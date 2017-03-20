@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListStudentsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class="container"> 
+            
+            <aside id="left">
+                
+            </aside>
+            
+            <div id="form">
+            
+            
+                <h:form styleClass="jsf_list_form">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+
+                    <h:panelGroup >
+                        <h:dataTable value="#{studentsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsf_odd_row,jsf_even_row" rules="all" style="border:solid 1px">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListStudentsTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListStudentsTitle_name}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.name}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListStudentsTitle_age}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.age}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListStudentsTitle_course}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.course}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{studentsController.prepareView}" value="#{bundle.ListStudentsViewLink}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{studentsController.prepareEdit}" value="#{bundle.ListStudentsEditLink}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+                                <h:commandLink action="#{studentsController.destroy}" value="#{bundle.ListStudentsDestroyLink}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <br />
+                    <h:commandLink action="#{studentsController.prepareCreate}" value="#{bundle.ListStudentsCreateLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ListStudentsIndexLink}"/>
+                    <br />
+                    <br />
+                    
+                </h:form>
+                
+            </div>
+<!--                <img src="images/panel.jpg" alt="StudentPanel" style="width:auto;height:auto;" ></img>-->
+            
+            <aside id="right">
+                
+            </aside>
+        </div>
+        </ui:define>
+         
+    </ui:composition>
+
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:composition template="/template.xhtml" >
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStudentsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body" >
+        <div class="container"> 
+            
+            <aside id="left">
+                
+            </aside>
+            
+            <div id="form">
+                <h:form >
+
+                    <table id="table1">
+                        <h:panelGrid columns="3">
+
+                            <h:outputText value="#{bundle.ViewStudentsLabel_id}"/>
+                            <h:outputText value="..........."/>
+                            <h:outputText value="#{studentsController.selected.id}" title="#{bundle.ViewStudentsTitle_id}"/>
+
+                            <h:outputText value="#{bundle.ViewStudentsLabel_name}"/>
+                            <h:outputText value="..........."/>
+                            <h:outputText value="#{studentsController.selected.name}" title="#{bundle.ViewStudentsTitle_name}"/>
+
+                            <h:outputText value="#{bundle.ViewStudentsLabel_age}"/>
+                            <h:outputText value="..........."/>
+                            <h:outputText value="#{studentsController.selected.age}" title="#{bundle.ViewStudentsTitle_age}"/>
+
+                            <h:outputText value="#{bundle.ViewStudentsLabel_course}"/>
+                            <h:outputText value="..........."/>
+                            <h:outputText value="#{studentsController.selected.course}" title="#{bundle.ViewStudentsTitle_course}"/>
+                        </h:panelGrid>
+                    </table>
+
+                    <br />
+                    <br />
+                    <h:link outcome="Edit" value="#{bundle.ViewStudentsEditLink}"/>
+                    <br />
+                    <br />
+                    <h:commandLink action="#{studentsController.prepareCreate}" value="#{bundle.ViewStudentsCreateLink}" />
+                    <br />
+                    <br />
+                    <h:commandLink action="#{studentsController.prepareList}" value="#{bundle.ViewStudentsShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ViewStudentsIndexLink}"/>
+
+                </h:form>
+            </div>
+            
+            <aside id="right">
+                
+            </aside>
+        </div>
+        </ui:define>
+    </ui:composition>
+
+</html>
